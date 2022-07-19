@@ -1,13 +1,11 @@
 #UNRESOLVED
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
-        buy = min(prices,)
-        ind = prices.index(buy)
-        print(buy)
-        sell = max(prices[ind:])
-        print(sell)
-        if buy > sell: return 0
-        return (sell - buy)
+        profit = 0
+        for i, buy_price in enumerate(prices):
+            sell_price = max(prices[i:])
+            profit = max(profit, sell_price - buy_price)
+        return profit
 
 prices1 = [7,1,5,3,6,4]
 prices2 = [7,6,4,3,1]
